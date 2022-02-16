@@ -49,19 +49,19 @@
 //STEP 1 : CREATE DEMO01
 //STEP 2: CREATE main.js
 //STEP 3: UPDATE main.js as follows 
-	// Understanding the Data types and Variables of Javascript
+// Understanding the Data types and Variables of Javascript
 
-v1=10;
-v2="10";
-v3="10.0";
-v4=10.0;
-v5=(v1<v2);
+v1 = 10;
+v2 = "10";
+v3 = "10.0";
+v4 = 10.0;
+v5 = (v1 < v2);
 
-console.log(v1+" type of "+typeof v1);
-console.log(v2+" type of "+typeof v2);
-console.log(v3+" type of "+typeof v3);
-console.log(v4+" type of "+typeof v4);
-console.log(v5+" type of "+typeof v5);
+console.log(v1 + " type of " + typeof v1);
+console.log(v2 + " type of " + typeof v2);
+console.log(v3 + " type of " + typeof v3);
+console.log(v4 + " type of " + typeof v4);
+console.log(v5 + " type of " + typeof v5);
 
 // STEP 4: node main.js 
 //output should be 
