@@ -1,4 +1,4 @@
-demo10
+//demo10
 //main.js without closure 
 const calc = function() {
     this.addition = function(n1, n2) {
