@@ -1,0 +1,65 @@
+Parent Clas Object
+1. toString()  -> convert object into string data
+2. equals()    -> compare the object for equality check
+3. hashCode()  -> generating unquie hashcode for an object 
+
+System.out.println(p1) ->System.out.println(p1.toString());System.out.println(p1.toString());
+Object.java{
+
+public String toString(){
+	returns this.getClass().getName()+"@"+function(this.hashCode());
+}
+
+}
+com.mastek.demo.model.Person@2a139a55
+
+create project=>demo15
+	com.mastek.demo.model.Bike [bikeId,bikeName,brand]
+	com.mastek.demo.model.Book [bookId,bookName,authorName]
+	com.mastek.demo.model.Car [carId,carName,brand]
+	com.mastek.demo.App 
+
+
+#### when we use == operator for object comparison in java it compares the ref location of these objects
+1. if obj1==obj2 => obj1 and obj2 both point/refer to same memory location it retuns true	
+2. if obj1==obj2 => obj1 and obj2 both point/refer to different memory location it retuns false
+#### we want object to be compard on the basis of internal values for equality not only on the basis of memory location
+obj1.name="Dhanashree"
+obj2.name="Dhanashree"
+
+obj1.name==obj2.name=> true We should not compare each data member of object explicitly
+Hence Java has a method called equals()
+obj1.equals(obj2) 
+equals method we need to provide which values compared will be considered object is same
+*** Object.java class already has basic/generalized logic of equals()
+how to override equals() and hashcode()
+why to override equals() and hashCode()=>Object should be compared with feild values while doing comparison for equality
+if the fields values are matching object must be equal
+
+Java has block initialization blocks : static and non=statick
+{} within the class may or may not have static mark on it
+1. if marked as static {} whill be called onlyonce while loading the class
+2. if not marked as static will called as nonstatic init block which will be called even before constructor called
+
+JavaTPoint Access Specifier
+1. Default access specifier : 
+  a. field/instance variable is accessible within the same class
+  b. field/instance variable is accessible to classes within the same package
+  c. field/instance varialbe is not accessible to classes defined in other packages 
+2. Protected access specifier :   
+  a. field/instance 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

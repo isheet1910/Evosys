@@ -1,0 +1,109 @@
+**. we must create pojo if the class is modelling the measer information of application
+What is class?
+[Blueprint of object]
+1. scope marked with class keyword
+2. every class has uniquname/ has qualified unique name e.g com.mastek.bankapp.model.BankAccount
+3. Class have constructors
+	a. default Constructor
+	b. overloaded constructor
+4. child class must inherit and implement parent class constructor
+	child class must have default and overloaded constructor as that of parent
+5. we can declare constant variables in class using static final keywords 
+	e.g. private static final double MIN_BAL
+6. field/instance varialble 
+	a. must be private 
+	b. naming convention: camelcase
+	c. duplicate variabl names are not allowed
+	d. must have public getter/setter
+7. methods which are either public or private 
+8. Types of classes:
+	a. Concrete Class
+		1. Class who's object can be created 
+		2. All pojos/classes not marked abstract are concrete classes 
+	b. Abstract Class
+		1. class marked as abstract class
+		2. class who's object should not be created 
+		3. class which has abstract method in it must be marked as abstract class
+		4. abstract class can have non-abstract as well as abstract methods
+		5. to support inheritance i.e. Open for extension close for modification		
+		6. if any class extends abstract class it must override the abstract behaviors 
+		7. if any class extending abstract class dont override the abstract behaviors /methods it must be marked as abstract
+	c. Final Class 
+		1. class which is concerete class but marked with final keyword
+		2. when you want to stop extension of class logic you mark it as final
+		3. e.g. in java we have java.lang.String which is marked as final as there is no further need of modification/extension
+		4. final blocks inheritance.
+	d. Anonymous Class:
+		1. class defined without class keyword and name is anonymous class
+		2. when we required certain logic of a class to be created only for a particular instance at runtime we use anonymous class
+		3. for anonymous classes the name is given with <containerclass>$<#>.class (numbering of anonymous class)
+		e.g. 
+		1. below code is first anonymous class written inside the App.java so the name is---->>> App$1.java 
+		greeting = new EnglishGreeting("Happy New Year") {
+
+			@Override
+			public String greet(String message) {
+
+				return this.getMessage() + " " + message + "!!!!!!!!!!!!";
+			}
+		};
+		2. below code is first anonymous class written inside the App.java so the name is---->>> App$2.java 
+		
+		greeting = new Greeting("Happy Holi") {
+
+			@Override
+			public String greet(String message) {
+
+				return this.getMessage() + " " + message + ":) ";
+			}
+		};
+
+		
+	e. Nested Class Inner class :
+		1. class declared within the class is nested class
+		2. when complied jvm generated .class file <outer_class>$<inner_class>.class  
+		e.g. the class file looks lie this : Person$Contact.class
+*** Abstract methods in abstract 
+1. in abstract class abstact method must be marked public abstract		
+
+What is Interface?
+-> Contract between classes
+-> pure abstraction i.e. it contains abstract methods only
+-> we cant create object of interface
+-> hence we need to implement them in classes to use the abstraction
+-> by default interface has methods which are implicitly public abstract
+-> interface extends  interface 	
+-> class implements interface 
+
+-> Jdk1.8 we have 
+	->Functional interfae
+	->default methods
+API => Application programming Interface
+com.mastek.demo
+	IGreet
+	implement by Greeting(@)
+				 extended by EnglishGreeting(C)
+				 extended by SpanishGreeting(C)	
+	
+com.mastek.bankapp
+			com.mastek.bankapp.model.IDeposit           com.mastek.bankapp.model.IWithdraw
+			
+							com.mastek.bankapp.model.IBankService 
+			
+			
+							com.mastek.bankapp.model.BankAccount
+							com.mastek.bankapp.model.SavingAccount
+							com.mastek.bankapp.model.SalaryAccount
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

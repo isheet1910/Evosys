@@ -1,0 +1,161 @@
+Access Specifires:
+1. private 		: only the within class
+2. default		: 
+				within class,within package (default is not an keyword to mark variable is no access specifier then its 		default)
+3. proteccted	:
+				protected data memeber are accessible to child in same or different packages, it 
+				behaves like default for non child classes from same package and 
+				behaves like private for non child classes from other packages 
+				a. datamembers are protected and inheritance and same package 
+					accessible e.g. this.message is accessible to all child classes in same package
+				b.  datamembers are protected and inheritance and different package 
+					accessible e.g. this.message is accessible to all child classes in different package
+				c. datamembers are protected and in same package non child class it acts like default access modifier
+					accessible e.g. this.message is accessible to non child classes in same package
+				d. datamembers are protected and in different package non child class it acts like private access modifier	
+				   we can access datamembers only by public get and set	
+4. public 		:
+				Accessible within and outside package for child or non child classes 
+===============================================================================================
+Success:
+valid inputs process valid output
+
+Valid input  
+	process there are some checks according 
+	which we can not process the input we have to terminate the process
+
+Error:
+	1. Compile time error
+	2. RuntimeError
+	
+	Throwable 
+		Exception [checked exception ->compilation error]
+			RuntimeException [unchecked exception->runttime error]
+
+When you have business related logical errors which will termiate the program are called Exceptions 
+	a. checked exception
+		Must be handled in try-catch-finally block
+	b. unchecked 
+		are throw at runtime if not handle will terminate the program
+		usually these exceptions goes to main method and it stops execution
+	c. we can created 
+		checked exception by extending Exception class
+		un-checked exception by extendin Runtimeexception
+		
+Why I need Exception?
+1. Logical check based on Business requirement 
+e.g . a. SalaryAccount balance should not go below zero /should not be negative: Insufficient balance
+	  b. SavingAccount must maintain the minimum balance:Must maintain Minbalance in account
+	  
+	  
+If a method block has throw new Exception() in it, then the method block must marked with throws exception
+@Override
+	public String withdraw(double amount) throws Exception {
+		final double diff=this.getBalance()-amount;
+		if(diff>=MIN_BAL){
+			this.setBalance(diff);
+		}else{
+			throw new Exception("Must maintain Min balance in account. "
+					+ "Try with different amount.");
+			
+		}
+		return amount+" debited from "+this.getAccNo()
+		+". Current balance is : "+this.getBalance();
+	}
+1. throws indicates which Exception you are thrwing
+2. throw indicate object of Exception
+3. When exception occure we need to handle it so that user get correct message and he/she can 
+	correct the input next time
+	try {
+	
+			System.out.println(account.withdraw(9001.0));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println("###################################################");
+			e.printStackTrace();
+			System.out.println("###################################################");
+			
+		}
+
+		a. try is block in which we can call all logic which may or may not throw exception
+		b. catch is block to catch the exception if any statement in try block throws exception
+		c. finally is block which will called in either case 
+			a. exception thrown
+			b. no excetion thrown
+			c. usually when we deal with resources even if there is error/exception or not we need 
+			   to release the resources 
+			   hence we write those logics in finally bloack
+1. What is exception?
+	Are logical errors thrown in a method block based on business/domain requirement
+2. How to handle exception?
+	We need to put the business logic causing exception in try or catch block followed by finally 
+3. how to throw exception
+	 a. Mark the method with "throws <exception_class_name>" on method signature
+	 b. within the method use "throw new <exception_class_name>();"
+4. How to create custom exceptions in java /custom checked exception
+	* checked exceptions are must be called within try catch block or the block in which the exception causing method 
+	is written must throw the underline exceptio
+	a. Extend the Exception class 
+
+		public class MaintainBalanceException extends Exception {
+
+			public MaintainBalanceException(String message) {
+				super(message);
+			}
+
+		}
+
+	b. Throw the child exception object 
+		throw new MaintainBalanceException("Must maintain Min balance in account. "
+						+ "Try with different amount.");
+					
+5. Exception and inheritance
+	A. if parent class throws Exception chilc class can throw Exception or any child class of Exception 
+		public interface IWithdraw {
+
+			String withdraw(double amount) throws Exception;
+		}
+	SavingAccount.java below code is successfully compiled 
+		@Override
+		public String withdraw(double amount) throws Exception {
+			final double diff=this.getBalance()-amount;
+			if(diff>=MIN_BAL){
+				this.setBalance(diff);
+			}else{
+				throw new MaintainBalanceException("Must maintain Min balance in account. "
+						+ "Try with different amount.");
+				
+			}
+			return amount+" debited from "+this.getAccNo()
+			+". Current balance is : "+this.getBalance();
+		}
+
+	B. if Parent class throws child class of Exception then child class in inheritance must throw the custom child exception and not the Exception class
+		package com.mastek.bankapp.model;
+
+		public interface IWithdraw {
+			String withdraw(double amount) throws MaintainBalanceException;
+		}
+		SavingAccount.java
+			@Override
+	public String withdraw(double amount) throws Exception {...}
+	
+#######Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+#######Exception Exception is not compatible with throws clause in IWithdraw.withdraw(double)
+	To sovle this we have to make below change
+	Possible solution 1:
+		public interface IWithdraw {
+			String withdraw(double amount) throws MaintainBalanceException;
+		}
+	@Override
+	public String withdraw(double amount) throws MaintainBalanceException {...}
+
+	Possibility 2: Best Solution
+		public interface IWithdraw {
+			String withdraw(double amount) throws Exception;
+		}
+	@Override
+	public String withdraw(double amount) throws Exception {...}
+	or
+	@Override
+	public String withdraw(double amount) throws MaintainBalanceException {...}
