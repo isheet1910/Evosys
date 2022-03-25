@@ -1,0 +1,6 @@
+Lambda and SOLID Principle
+1. Single Responsibility -> Functional Interfaces=>Only have single reason to change
+2. Open for extension close for Modificaiton
+3. Liskove principle  
+4. Interface Segregation
+5. Dependency injection

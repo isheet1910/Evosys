@@ -1,0 +1,73 @@
+######################################################
+#### Java JDBC API
+	1. Connection(I)
+	2. DriverManger(C)
+	3. Driver (I)
+	4. Statement(I)
+		-PreparedStatement(I)
+		-CallbaleStatement(I)
+	5. ResultSet(I)
+######################################################  
+#### Database
+	1. Oracle
+	2. Mysql
+	3. MSSQL
+	4. PostgreSQL
+	5. NO SQL
+######################################################  
+				Bridge Types Driver 
+				Type 1
+				Type 2
+				Type 3
+				Type 4 Java (application and db gives .jar file for creating connection)
+#### Read: JavaTPoint-> JDBC DRIVER TYPES
+######################################################  
+STEP 1 : START
+STEP 2 : SET URL : JDBC:ORACLE:@//LOCALHOST:1521/XE 
+STEP 3 : SET USERNAME: C##ADUSER
+STEP 4 : SET PASSSWORD: ROOT
+STEP 5 : SET CONNECTION = DRIVERMANAGER(URL,USERNAME,PASSWORD);
+  *BEFORE JDK1.5:
+		 Class driver=Class.forName(qualifiednameofaclass->database driver class)
+		 DriverManager.registerDriver((Driver)driver);
+STEP 6 : SET statement=CONNECTION.createStatement();
+STEP 7 : STATEMENT
+			A. EXECUTE QUERY -> RESULT SET
+			B. EXECUTE UPDATE-> INT (NO. OF ROWS AFFECT)=>INSERT , UPDATE ,DELETE
+STEP 8 : A. RESULTSET 
+			ITERATER
+		 B. NO .OF RECORDS AFFECTED IN DB
+			DISPLAY MESSAGE
+######################################################  
+1. MyConnection class
+	1. private static data members
+	2. private default constructor
+	3. private static method returning connection object;
+2. App
+	1. getDept()
+	2. updateDept()
+	3. deleteDept()
+	4. insertDept()
+######################################################  
+#### Layered Architecture
+1. com.training.demo.App.java
+2. com.training.demo.Menu.java
+	=>Menu=>1.Create 2. Update 3.Delete 4. Retrive
+3. com.training.demo.model.Dept.java
+4. com.training.demo.model.DeptController.java   	
+5. com.training.demo.dao.DeptDao.java
+######################################################  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

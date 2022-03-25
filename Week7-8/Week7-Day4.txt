@@ -1,0 +1,29 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ORM 
+Object - Java
+Relation - SQL
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Table => Must have primary key
+		 ACID Automicity consistancy isolation durability
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Persistance Object=> State of an object should be maintain
+=> Serializable
+javax.persistance.Entity
+javax.persistance.Table
+javax.persistance.ID ==== Primary key
+javax.persistance.Column
+
+if any class marked as @Entity it must have one field/datamemeber/instance
+variable marked with @Id.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Hibernate===> JPA
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+a. Data First database already has all tables 
+b. Code First java code are written first then orm generates the Database objects
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
+

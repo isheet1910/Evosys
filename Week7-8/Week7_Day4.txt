@@ -1,0 +1,121 @@
+SOLID
+	Single Responsibility
+	Open Closed principle
+	Liskov Substitution principle
+	Interface Segregation 
+	Dependency Injection 
+JDBC API 
+1. Connection
+2. Driver
+3. DriverManager
+4. Statement, PreparedStatement,CallableStatement
+5. ResutlSet
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Table
+1. 			attributes+constraints
+2. SQL Syntax is different for different db
+3. Data types and its size varies for different db
+4. Primary key and foreign key relation in entities
+5. No support for IS A relationship
+Java 
+1. Object		attributes+modifier
+2. Parent and child relationship=> IS A 
+3. Has A where one object consist of another object
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+As per the db we need to maintain the java code
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Object Relation Mapping: Hibernate
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	Object 	Mapping 	Relation(Table)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+What is Table? entity =>Persistant Entity ->State maintain -> ACID 
+ACID=> Automicity, Consistancy, Isolation, Durability
+Manipulation DML =>Consistant
+REcords in the database are Persistant=> They maintain the state.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Object=>Persistant=> you mark it with Serializable
+Object must be consistant with BoyCodds rules
+Table it must have primary key=>unique and not null
+
+Object serializable+datamember which is unique and notnull
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Annotations => Comments which are available for the compiler during compilation or 
+			   for JVM during runtime applied on datamembers,member methods or class
+			   
+			   
+java.persistance.Entity
+@Entity -> the class is serializable  
+		   and it must have one datamember marked with @Id indicating primary key
+
+	@Entity
+	public class <Some_class>{
+		@ID
+		private int id;
+
+	}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	Object 	Mapping 	Relation(Table) -Hibernate Framework
+	1. 50+ Dialect 
+	2. Hibernae4=>JPA API 
+	3. GRanularity problem 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+hibernateproject
+1. add dependencies in pom.xml
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>21.1.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.7.Final</version>
+		</dependency>
+2. JavaBean marked with @Entity and attribute marked with @id
+3. Create Configuration file  hibernate.cfg.xml (always give this name only)
+	this file has information about : url,usrename,password,driver,dialect,mapping class
+	    <property name="hbm2ddl.auto">update</property>    
+        <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>    
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>    
+        <property name="connection.username">system</property>    
+        <property name="connection.password">jtp</property>    
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>   
+       
+        <mapping class="com.javatpoint.mypackage.Employee"/>  
+
+	
+DDL->Data definintion language 
+ORM=>Code first approach => .java => TAble 
+4. Create a class to load the configuration and connect the database
+StandardServiceRegistry registry=new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+ a. StandardServiceRegistryBuilder().configure("hibernate.cfg.xml")=>reading xml file to load theproperty
+ b. StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();=>all the properites will be set to 
+	sessionFActory object
+		hbm2ddl.auto="update"
+		dialect=org.hibernate.dialect.Oracle9Dialect
+ c. Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();  	
+	hbm2ddl_autos="update"
+ d.SessionFactory factory = meta.getSessionFactoryBuilder().build();  
+	factorty.setHb2ddlauto("update")
+ e. Session session = factory.openSession();  
+ f. Transaction t = session.beginTransaction();   
+ g. session.save()==>>> insert on the database 
+ h. t.commit();
+ i. session.close();
+ j. factory.close();
+
+1st time hbm2ddl.auto=create
+2nd time hbm2ddl.auto=update
+
+save	->Create
+		->Retrive
+		->update
+		->Delete
+		
+		
+		Entity Persistant
+		State
+		
+		

@@ -1,0 +1,102 @@
+FileReader fr = null;
+FileWriter fw= null; 
+try{
+		fr = new FileReader ("employee.txt");
+		fw= new FileWriter("copy_employee.txt"); 
+			char [] data=new char[100];
+			
+			while(fr.read(data)!=-1) {
+				System.out.println("############# "+i+" ############# ");
+				System.out.println(data);
+				System.out.println("##################################");
+				fw.write(data);
+				i++;
+			}
+			
+		} catch (Exception e) {
+				e.printStackTrace();
+		}finally{
+			try{
+			fr.close();
+			fw.close();
+			}catch(Exception e){
+			}
+		}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@		
+JDK1.7: try with resource they are implementing Closable
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	try(FileReader fr = new FileReader ("employee.txt");FileWriter fw= new FileWriter("copy_employee.txt")) {
+			char [] data=new char[100];
+			
+			while(fr.read(data)!=-1) {
+				System.out.println("############# "+i+" ############# ");
+				System.out.println(data);
+				System.out.println("##################################");
+				fw.write(data);
+				i++;
+			}
+			
+		} catch (Exception e) {
+				e.printStackTrace();
+		}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+byte : inputstream,outputStream, FileInputstream and Fileoutputstream
+char : Reader,Writer, BufferReader and BufferWriter
+
+byte short int long 
+0,1
+absensce -1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Design Pattern Known as Decorator Pattern
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	try {
+			FileReader fr = new FileReader("final_employee.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String s = br.readLine();
+			int i=1;
+			while (s != null) {
+				System.out.println(i+":\t"+s);
+				s = br.readLine();
+				i++;
+			}
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Collection
+	1. add 
+	2. search
+	3. update
+	4. delete
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@	
+Set of information about people living in particular Area.
+average age of these people who's actual age >20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

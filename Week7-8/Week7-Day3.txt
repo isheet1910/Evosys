@@ -1,0 +1,53 @@
+dao=> Data Access Object
+Object
+
+Dept(deptno,dname,branchno)												10| "Accounting| 102
+
+==========================================================================================================================
+CRUD
+C  Creating => insert	 insert into dept values(?,?,?)							=>create(int deptno,String dname,int branchno)
+R  Retrive  => select	 select deptno,dname,branchno from dept; 				=> findAll()
+   Retrive  => selectOne select deptno,dname,branchno from dept where deptno=?; => findByPK(int deptno)
+U  Update   => update	 update dept set dname where deptno=?					=> update(int deptno,String dname)
+D  Delete   => delete	 delete from dept where deptno=?						=> delete(int deptno)
+
+Emp	
+
+CRUD
+C  Creating => insert	 insert into emp values(?,?,?)							=>create(int deptno,String dname,int branchno)
+R  Retrive  => select	 select deptno,dname,branchno from dept; 				=> findAll()
+   Retrive  => selectOne select deptno,dname,branchno from dept where deptno=?; => findByPK(int deptno)
+U  Update   => update	 update dept set dname where deptno=?					=> update(int deptno,String dname)
+D  Delete   => delete	 delete from dept where deptno=?						=> delete(int deptno)
+==========================================================================================================================
+create(T t): true: no of records created
+findAll():List<T>
+findByPK(int pk):T
+update(T t):true	: no of records updated
+delete(int pk):true : no of records deleted
+=============================================================================================================================
+Above functionality defines The Data Access Object
+In your project there might be N entities/models which are having N tables in database
+for each entity we will need above functionality
+hence we are creating one Interface which will define what DAO should have 
+
+IDao
++findAll():List<T>
++findOne(int id):T
++create(T t):boolean
++update(T t):boolean
++delete(int id):boolean
+
+
+
+
+
+
+
+
+
+
+
+
+
+

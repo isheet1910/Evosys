@@ -1,0 +1,56 @@
+ARRAY : Similiar type Data | Fixed
+Collection: Haterogeneous Data | Dynamic
+	Comparable comparable=new Comparable(){
+		public int compareTo(Object o){
+		Person p=(Person)o;
+		}
+	}
+Generics: Similiar type Data| Dynamic
+GEnerics: Comparable<Person>
+	Comparable<Person> comparable=new Comparable<Person>(){
+			public int compareTo(Person p){
+			}
+		}
+Iterator is supposed used only for displaying content of list
+If you try to modify the list using iterator we get below errors:		
+1>ConcurrentModificationException
+	Iterator i=numbers.iterator();
+		 while(i.hasNext()) {
+		 System.out.println("Iterator Read "+i.next());
+		 numbers.add(123);
+		 }		
+2>Exception in thread "main" java.lang.Error: Unresolved compilation problem:
+The method add() is undefined for the type Iterator
+	Iterator i=numbers.iterator();
+		 while(i.hasNext()) {
+		 System.out.println("Iterator Read "+i.next());
+		 i.add(123);
+		 }		
+##### ListIterator: its been use to visit / display everly element from the list which is similar to iterator
+1. ListIterator has next() and hasNext() move top to bottom 
+2. ListIterator has previous() and hasPrevious() to move bottom to top
+3. ListIterator has add(Object) to make change in list object while reading it 
+4. ListIterator acts like ReadWrite cursor
+ListIterator literator=numbers.listIterator();
+		 while(literator.hasNext()) {
+		 System.out.println("ListIterator Read "+literator.next());
+		  literator.add(123);
+		 }		 
+5. If you try to add something in list directly while ListIterator is reading data we get below runtime exception:
+Exception in thread "main" java.util.ConcurrentModificationException
+System.out.println("Before "+numbers);
+		 ListIterator literator=numbers.listIterator();
+		 while(literator.hasNext()) {
+		 System.out.println("ListIterator Read "+literator.next());
+		 numbers.add(123);
+		 }
+		 System.out.println("After "+numbers);
+		 
+=======================================================================================================
+Object if you want them to be sorted they first fall must have some comparison logic
+1. Default way is that make it Comprable =>class must implements Comprable(I) and override compareTo(<Class_name> secondObject)
+2. Besides the basic comparison you want to additional comparison based on other attributes/fields/instance varaible
+   its suggest to create Separate Class implementing Comparator
+
+
+		 

@@ -1,0 +1,14 @@
+10th Mar and 12Mar => practice 
+	class and object 
+	Abstraction,Encapsulation,inheritance,polymorphism
+	Type of Classes 
+	interface 
+	keywords: static,final,abstract,this,super
+	constructor
+	JavaTPOint + Geekofgeeks
+	https://www.youtube.com/c/DurgaSoftwareSolutions/playlists -> Core Java 
+Are pending with any previous topic please windup do not delay
+week 14th March	collection,generics,lambda
+week 21 March   Jdbc and hibernate
+week 28 March   Spring core,spring mvc, spring boot
+

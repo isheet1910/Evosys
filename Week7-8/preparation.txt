@@ -1,0 +1,62 @@
+Syntax=>Result
+1. Oracle Sql each 45min
+	ddl 
+	dml 
+	dql 
+		1. select 
+		2. select where
+		3. select between, in ,is null
+		4. group by 
+		5. order by
+		6. subquery
+		7. join
+		8. union intersect
+		9. function
+	dcl 45 min
+		grant revoke
+	tcl 45 min
+		commit 
+		rollback
+2. PLSQL
+	block
+	varail declare,initialize
+	conditional
+	loop
+	cursor
+	procedure
+	function
+	trigger
+3. HTML
+	Basic TAg
+	Semantic
+	Form
+		input feilds new & old
+		attributes required,placeholder...
+	API
+	webstroge
+	dragdrop
+	geolocation
+	webworker
+	canvac/svg
+	audio/video
+4. css
+	types of CSS inline,internal,external
+	types of selectors 
+	properites 
+	px,em
+	fixed and relative
+	margine padding
+	display 
+5. Javasript
+	1. datatypes 2 variable 3. condtiion 4, looping 5, function (anonymous,named function,callback)
+	6. asynchronous => callback, async await
+	7. clousure
+8 Java 
+	1. datatypes 2 variable 3. condtiion 4, looping 5, Classes (concrete,abstract,final,anonymous)
+	6. interface 7. array,collection,generic lambda 8.Jdbc 9.hibreante 10. springboot
+
+	Cumulative 
+	day 1 topic (10)
+	day 2 day 1 (5) + day 2 (10)
+	
+	

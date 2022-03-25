@@ -1,0 +1,122 @@
+FileIO
+Activity 1: 
+Create a application to accept personal details firstName, lastName of a person.
+Store these details in a file such that new person entry comes on new line.
+For every new line firstname and lastname are separated by : 
+Activity 2:
+Create application to read the personal details from the file.
+using STring methods get the firstName and last name such that you create person object for each 
+new line.
+Add this person object into an array and display all person data of this array.
+
+*** Override toString(),equals(),hashCode() (firstName as well as lastName)
+
+ByteStream inputstream/output and Char Stream Reader/Writers
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Array ?
+1. Collection of similiar type data arranged in sequnetial manner
+2. fixed size
+3. it has index number to access the
+
+=======================================================================================================
+Collection API
+	Collection(I) IS A
+	-List(i)	 Set(i)  							Queue(i)
+						SortedSet(i)
+						
+	 ArrayList	 HasSet  TreeSet(orderset)        LinkedList
+
+	- Map(i) cosist of [set,collection] HAS A
+	
+		HasMap
+==========================================================================================================
+Array 		: Similar Type Data								:Static
+Collection  : Object Type Data(may or may not be similar)	:Dynamic
+==========================================================================================================
+Generics	:Collection Similar type objects 				: Dynamic
+<>    : Dimond left=right JDK1.5 since jdk 1.7 you can mention the type on RHS as it defines the object
+==========================================================================================================
+1. List
+2. Set
+3. Map
+
+1. create the object list/set/map
+2. add object in to list/set/map
+3. display the element/ iterator over the collection
+
+
+
+create bankapp11-> com.mastek.bankapp.model
+						->BankAccount
+						->SavingAccount
+						->SalaryAccount
+						->IBankService
+						->IDeposit
+						->IWithdraw
+					com.mastek.bankapp
+						->BankApp
+							main()
+5min
+							
+
+
+By Default when you want to work with Collection API 
+Your coustom class must take care of below things
+1. Ovrride equals () and hashCode()
+2. Custom class must implement Comparable for natural order sorting
+public clas BankAccount implemetns IBankService,Comparable{
+
+	public int compareTo(Object o){
+		return 0|1|-1;
+		}
+}
+3. If you want to provide reverse/descending order then your Customclass can implement Comparotor
+
+
+public clas BankAccount implemetns IBankService,Comparable,Comparator{
+
+	public int compareTo(Object o){
+		//BankAccount other=(BankAccount)o;
+		//return this.accNo-other.accNo;
+		BankAccount account1=this;
+		BankAccount account2=(BankAccount)o;
+		
+		return account1.accNo-account2.accNo; //Ascending
+		}
+		
+	public int compare(Object o1, Object o2){
+		BankAccount account1=(BankAccount)o1;
+		BankAccount account2=(BankAccount)o2;
+		
+		return account2.accNo-account1.accNo; //Descending
+		
+	}	
+	
+}
+
+1. Created Records in Tables 				1. Create datastructure which will store your objects List/Set/Queue/Map
+2. Query to fetch records => order 			2. Comparable(compareTo(Object)) & Comparator(compare(Object o1,Object o2)
+3. Aggregate Function						3. How to do aggreation functions on Collection data
+		sum									4. Using Lambda expression to deal with Collection	
+		avg									5. Why,What and How Generics works in Java
+		min
+		max
+		count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
